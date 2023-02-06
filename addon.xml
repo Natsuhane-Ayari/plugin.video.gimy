@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.gimy"
+version="1.0"
+name="gimy"
+provider-name="Natsuhane Ayari">
+<requires>
+  <import addon="xbmc.python" version="3.0.0"/>
+  <import addon="script.module.requests"/>
+  <import addon="script.module.beautifulsoup4"/>
+</requires>
+<extension point="xbmc.python.pluginsource" library="main.py">
+  <provides>video</provides>
+</extension>
+<extension point="xbmc.addon.metadata">
+  <summary lang="en">gimy影視</summary>
+  <description lang="en_GB">在kodi上看gimy的影視</description>
+  <disclaimer lang="en_GB"></disclaimer>
+  <assets>
+    <icon>icon.png</icon>
+    <fanart>fanart.jpg</fanart>
+    <screenshot>resources\1.png</screenshot>
+    <screenshot>resources\2.png</screenshot>
+    <screenshot>resources\3.png</screenshot>    
+  </assets>
+  <news>OwO</news>
+</extension>
+</addon>
