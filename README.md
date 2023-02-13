@@ -15,7 +15,7 @@
 ※通常會在Download資料夾
 ![img](ss/14.png)
 選取下載好的Zip檔
-![img](15.png)
+![img](ss/15.png)
 等它一段時間，安裝完成後就會出現在畫面上
 ![img](ss/17.png)
 
