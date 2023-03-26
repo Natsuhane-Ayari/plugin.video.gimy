@@ -6,7 +6,7 @@
 這是一個在電視上使用KODI觀看gimy.app影視的插件，不再需要使用滑鼠或滑鼠模式在電視上操作gimy.app網頁
 ***
 ## 安裝
-點選這裡[下載](https://github.com/Natsuhane-Ayari/plugin.video.gimy/releases/download/v4.2/plugin.video.gimy-4.2.zip)插件Zip檔
+### 點選這裡[下載](https://github.com/Natsuhane-Ayari/plugin.video.gimy/releases/download/v4.2/plugin.video.gimy-4.2.zip)插件Zip檔
 
 進入KODI的附加元件分頁，移至**從Zip檔安裝**
 ![img](ss/9.png)
