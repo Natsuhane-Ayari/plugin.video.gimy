@@ -9,7 +9,7 @@ temp_PATH = xbmcvfs.translatePath("special://home/").replace("\\","/")+"addons/p
 user_agent = {'user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.134 Safari/537.36 Edg/103.0.1264.71'}
 
 def getHomePage():
-    res = requests.get("https://gimy.app/",headers=user_agent).text
+    res = requests.get("https://gimy.ai/",headers=user_agent).text
     soup = bs4.BeautifulSoup(res,'html.parser')
     homePage = soup.find_all("a",class_="video-pic loading")
     for i in range(len(homePage)):
@@ -18,7 +18,7 @@ def getHomePage():
         xbmcplugin.addDirectoryItem(handle,sys.argv[0]+"?coderesH%s"%(homePage[i].get("href").split("/")[-1][:-5]),listitem,True)
 
 def getTypeAnime():
-    res = requests.get("https://gimy.app/type/30.html",headers=user_agent).text
+    res = requests.get("https://gimy.ai/type/30.html",headers=user_agent).text
     soup = bs4.BeautifulSoup(res,'html.parser')
     anime = soup.find_all("a",class_="video-pic loading")
     for i in range(len(anime)):
@@ -27,7 +27,7 @@ def getTypeAnime():
         xbmcplugin.addDirectoryItem(handle,sys.argv[0]+"?coderesH%s"%(anime[i].get("href").split("/")[-1][:-5]),listitem,True)
 
 def getTypeTVShow():
-    res = requests.get("https://gimy.app/type/2.html",headers=user_agent).text
+    res = requests.get("https://gimy.ai/type/2.html",headers=user_agent).text
     soup = bs4.BeautifulSoup(res,'html.parser')
     tvshow = soup.find_all("a",class_="video-pic loading")
     for i in range(len(tvshow)):
@@ -36,7 +36,7 @@ def getTypeTVShow():
         xbmcplugin.addDirectoryItem(handle,sys.argv[0]+"?coderesH%s"%(tvshow[i].get("href").split("/")[-1][:-5]),listitem,True)
 
 def getTypeVarietyShow():
-    res = requests.get("https://gimy.app/type/29.html",headers=user_agent).text
+    res = requests.get("https://gimy.ai/type/29.html",headers=user_agent).text
     soup = bs4.BeautifulSoup(res,'html.parser')
     varietyshow = soup.find_all("a",class_="video-pic loading")
     for i in range(len(varietyshow)):
@@ -45,7 +45,7 @@ def getTypeVarietyShow():
         xbmcplugin.addDirectoryItem(handle,sys.argv[0]+"?coderesH%s"%(varietyshow[i].get("href").split("/")[-1][:-5]),listitem,True)
 
 def search(key_word):
-    res = requests.get("https://gimy.app/search/-------------.html?wd=%s"%(key_word),headers=user_agent).text
+    res = requests.get("https://gimy.ai/search/-------------.html?wd=%s"%(key_word),headers=user_agent).text
     soup = bs4.BeautifulSoup(res,'html.parser')
     search = soup.find_all("a",class_="video-pic loading")
     for i in range(len(search)):
@@ -173,9 +173,9 @@ def select_EP(index):
     f = open(temp_PATH+"playList.txt","w")
     playList = [] #單一集數的原始網址
     for i in range(len(playListSource)):
-        playList.append("https://gimy.app/"+str(playListSource[i]).split('"')[1])
+        playList.append("https://gimy.ai/"+str(playListSource[i]).split('"')[1])
         listitem = xbmcgui.ListItem("第%d集"%(i+1))
-        f.write("https://gimy.app/"+str(playListSource[i]).split('"')[1]+"\n")
+        f.write("https://gimy.ai/"+str(playListSource[i]).split('"')[1]+"\n")
         xbmcplugin.addDirectoryItem(handle,sys.argv[0]+"?playH%d"%(i),listitem,False)
     f.close()
     f = open(temp_PATH+"rmad.txt","r")
@@ -233,7 +233,7 @@ if dir_level[0] == "4":
     getTypeVarietyShow()
 if dir_level[0] == "7":
     album_code = xbmcgui.Dialog().input("輸入影集號碼")
-    res = requests.get("https://gimy.app/vod/%s.html"%(album_code),headers=user_agent).text
+    res = requests.get("https://gimy.ai/vod/%s.html"%(album_code),headers=user_agent).text
     soup = bs4.BeautifulSoup(res,'html.parser')
     album_title = soup.find("h1").text
     album_thumb = soup.find("meta",property="og:image").get("content")
@@ -249,7 +249,7 @@ if dir_level[0] == "8":
     f.close()
     search(key_word)
 if dir_level[0] == "coderes":
-    get_playlist("https://gimy.app/vod/%s.html"%(dir_level[1]))
+    get_playlist("https://gimy.ai/vod/%s.html"%(dir_level[1]))
 if dir_level[0] == "ep":
     select_EP(int(dir_level[1]))
 if dir_level[0] == "play":
